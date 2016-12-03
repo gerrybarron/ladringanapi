@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+  <table style="text-align:center;">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Scientific Name</th>
+      <th>Description</th>
+      <th>Habitat</th>
+    </tr>
+    <tbody id="dataTable">
+    
+    
+    
+    </tbody>
+  
+  
+  
+  
+  </table>
+
+
+
+
+
+  <script>
+  $.getJSON('http://iligtas.ph/201310442/', function(jsonData) {
+  //$.getJSON('index2.php', function(jsonData) {
+      console.log(jsonData);
+      $('#dataTable').empty();
+      $.each(jsonData, function(idx, obj) {
+        $('#dataTable').append('<tr><td>'+obj.id+'</td><td>'+obj.name+'</td><td>'+obj.scientificname+'</td><td>'+obj.description+'</td><td>'+obj.habitat+'</td></tr>');
+      }); 
+    });
+  </script>
+</body>
+</html>
